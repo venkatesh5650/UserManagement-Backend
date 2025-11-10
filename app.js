@@ -9,18 +9,17 @@ const taskRoutes = require("./src/routes/taskRoutes");
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:5173",
-  "https://user-management-frontend-a7l6.vercel.app", // ✅ your Vercel frontend
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: [
+      "http://localhost:3000",
+      "https://user-management-frontend-a7l6.vercel.app", // ✅ FIXED
+    ],
+    methods: "GET,POST,PUT,DELETE",
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 
