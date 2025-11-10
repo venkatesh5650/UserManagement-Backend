@@ -8,11 +8,16 @@ const authRoutes = require("./src/routes/authRoutes");
 const taskRoutes = require("./src/routes/taskRoutes");
 
 const app = express();
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"];
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://user-management-frontend-a7l6.vercel.app", // ✅ your Vercel frontend
+];
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
